@@ -1,0 +1,6 @@
+﻿1=> Add new layout and called _defaultLayout
+2=> change name _layout to _AdminLayout
+3=> copy all of code from  Index.html and pase in _defaultLayout
+4=> Cut Index view codes from layout and use renderBody
+5=> include asset folder
+6=> fix all path in layout
