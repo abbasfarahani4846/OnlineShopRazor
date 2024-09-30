@@ -1,7 +1,11 @@
+using OnlineShopRazor.Models.db;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContext<OnlineShopContext>();
 
 var app = builder.Build();
 

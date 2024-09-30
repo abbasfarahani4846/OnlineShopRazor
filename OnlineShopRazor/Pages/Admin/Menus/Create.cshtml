@@ -1,0 +1,51 @@
+﻿@page
+@model OnlineShopRazor.Pages.Admin.Menus.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Menu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Menu.Title" class="control-label"></label>
+                <input asp-for="Menu.Title" class="form-control" />
+                <span asp-validation-for="Menu.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Menu.Link" class="control-label"></label>
+                <input asp-for="Menu.Link" class="form-control" />
+                <span asp-validation-for="Menu.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Menu.Type" class="control-label"></label>
+                <select asp-for="Menu.Type" class="form-control">
+                    <option value="Top">
+                        Top
+                    </option>
+                    <option value="Bottom">
+                        Bottom
+                    </option>
+                </select>
+                <span asp-validation-for="Menu.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
