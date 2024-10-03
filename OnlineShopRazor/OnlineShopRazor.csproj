@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Admin\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\html\.idea\.idea.New folder.dir\.idea\indexLayout.xml" />
     <Content Include="wwwroot\html\.idea\.idea.New folder.dir\.idea\projectSettingsUpdater.xml" />
     <Content Include="wwwroot\html\.idea\.idea.New folder.dir\.idea\workspace.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Admin\Index.cshtml" />
     <None Include="wwwroot\html\.idea\.idea.New folder.dir\.idea\.gitignore" />
   </ItemGroup>
 
@@ -32,6 +37,16 @@
     <PackageReference Include="PayPal" Version="1.9.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <!--<PackageReference Include="System.Security.Permissions" Version="8.0.0" />-->
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Admin\Index.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Admin\Index.cshtml" />
   </ItemGroup>
 
 </Project>
