@@ -1,0 +1,73 @@
+﻿@page
+@model OnlineShopRazor.Pages.Admin.Banners.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Banner</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Banner.Title" class="control-label"></label>
+                <textarea asp-for="Banner.Title" class="form-control"></textarea>
+                <span asp-validation-for="Banner.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banner.Description" class="control-label"></label>
+                <textarea asp-for="Banner.Title" class="form-control"></textarea>
+                <span asp-validation-for="Banner.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banner.ImageName" class="control-label"></label>
+                @* Added *@
+                <input type="file" name="newImage" class="form-control" />
+                @* Added *@
+                <span asp-validation-for="Banner.ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banner.Priority" class="control-label"></label>
+                <input asp-for="Banner.Priority" class="form-control" />
+                <span asp-validation-for="Banner.Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banner.Link" class="control-label"></label>
+                <input asp-for="Banner.Link" class="form-control" />
+                <span asp-validation-for="Banner.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banner.Position" class="control-label"></label>
+                @* Added *@
+                <select asp-for="Banner.Position" class="form-control">
+                    <option value="slider">
+                        slider
+                    </option>
+                    <option value="banner1">
+                        banner1
+                    </option>
+                    <option value="banner2">
+                        banner2
+                    </option>
+                </select>
+                @* Added *@
+                <span asp-validation-for="Banner.Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
