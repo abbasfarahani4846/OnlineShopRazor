@@ -1,0 +1,88 @@
+﻿@page
+@model OnlineShopRazor.Pages.Admin.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Title" class="control-label"></label>
+                <input asp-for="Product.Title" class="form-control" />
+                <span asp-validation-for="Product.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Text" class="control-label"></label>
+                <textarea asp-for="Product.Text" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Discount" class="control-label"></label>
+                <input asp-for="Product.Discount" class="form-control" />
+                <span asp-validation-for="Product.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ImageName" class="control-label"></label>
+                @* Added *@
+                <input type="file" name="image" class="form-control" />
+                @* Added *@
+                <span asp-validation-for="Product.ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Gallery</label>
+         
+                <input type="file" name="gallery" class="form-control" multiple />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Qty" class="control-label"></label>
+                <input asp-for="Product.Qty" class="form-control" />
+                <span asp-validation-for="Product.Qty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Tags" class="control-label"></label>
+                <input asp-for="Product.Tags" class="form-control" />
+                <span asp-validation-for="Product.Tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Category" class="control-label"></label>
+                @* Added *@
+                <select asp-for="Product.Category" class="form-control">
+                    <option value="Tshirt">
+                        Tshirt
+                    </option>
+                </select>
+                @* Added *@
+                <span asp-validation-for="Product.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
