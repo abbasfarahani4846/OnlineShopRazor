@@ -58,7 +58,7 @@ namespace OnlineShopRazor.Pages.Admin.Products
 
                 if (System.IO.File.Exists(mainImagePath))
                 {
-                    System.IO.File.Delete(fn);
+                    System.IO.File.Delete(mainImagePath);
                 }
 
                 var galleries = _context.ProductGaleries.Where(x => x.ProductId == id).ToList();

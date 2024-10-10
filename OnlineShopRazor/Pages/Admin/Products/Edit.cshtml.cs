@@ -78,10 +78,19 @@ namespace OnlineShopRazor.Pages.Admin.Products
 
             if (image != null)
             {
+                string d = Directory.GetCurrentDirectory();
+                string fn = d + "\\wwwroot\\images\\products\\";
+
+                string mainImagePath = fn + Product.ImageName;
+
+                if (System.IO.File.Exists(mainImagePath))
+                {
+                    System.IO.File.Delete(mainImagePath);
+                }
+
                 Product.ImageName = Guid.NewGuid() + Path.GetExtension(image.FileName);
                 //------------------------------------------------
-                string d = Directory.GetCurrentDirectory();
-                string fn = d + "\\wwwroot\\images\\products\\" + Product.ImageName;
+                fn = d + "\\wwwroot\\images\\products\\" + Product.ImageName;
                 //------------------------------------------------
 
                 using (var stream = new FileStream(fn, FileMode.Create))
