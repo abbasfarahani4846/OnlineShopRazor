@@ -16,9 +16,22 @@ namespace OnlineShopRazor.Pages
         }
 
         public List<Product> Products { get; set; }
-        public void OnGet()
+        public void OnGet(string searchText)
         {
-             Products = _context.Products.OrderByDescending(x => x.Id).ToList();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                Products = _context.Products.Where(x =>
+                        EF.Functions.Like(x.Title, "%" + searchText + "%") ||
+                        EF.Functions.Like(x.Tags, "%" + searchText + "%")
+                    )
+                    .OrderBy(x => x.Title)
+                    .ToList();
+            }
+            else
+            {
+                Products = _context.Products.OrderByDescending(x => x.Id).ToList();
+            }
+             
         }
     }
 }
