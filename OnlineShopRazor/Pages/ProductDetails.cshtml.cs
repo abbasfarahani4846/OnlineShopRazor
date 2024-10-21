@@ -14,9 +14,9 @@ public class ProductDetails : PageModel
     }
 
     public Product? Product { get; set; }
-    public List<ProductGalery> ProductGaleries { get; set; } = new List<ProductGalery>();
-    public List<Comment> Comments { get; set; } = new List<Comment>();
-    public List<Product> NewProducts { get; set; } = new List<Product>();
+    public List<ProductGalery> ProductGaleries { get; set; }
+    public List<Comment> Comments { get; set; }
+    public List<Product> NewProducts { get; set; }
     public IActionResult OnGet(int id)
     {
         
