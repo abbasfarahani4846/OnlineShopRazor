@@ -18,6 +18,7 @@ public class ProductDetails : PageModel
     public List<ProductGalery> ProductGaleries { get; set; }
     public List<Comment> Comments { get; set; }
     public List<Product> NewProducts { get; set; }
+    public string Message { get; set; }
     public IActionResult OnGet(int id)
     {
         
@@ -45,7 +46,7 @@ public class ProductDetails : PageModel
             Match match = regex.Match(email);
             if (!match.Success)
             {
-                TempData["ErrorMessage"] = "Email is not valid";
+                Message = "Email is not valid";
                 return Redirect("/ProductDetails?id=" + productId);
             }
 
@@ -59,12 +60,12 @@ public class ProductDetails : PageModel
             _context.Comments.Add(newComment);
             _context.SaveChanges();
 
-            TempData["SuccessMessage"] = "Youre comment submited success fully";
+            Message = "Youre comment submited success fully";
             return Redirect("/ProductDetails?id=" + productId);
         }
         else
         {
-            TempData["ErrorMessage"] = "Please complete youre information";
+            Message = "Please complete youre information";
             return Redirect("/ProductDetails?id=" + productId);
         }
     }

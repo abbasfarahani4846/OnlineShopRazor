@@ -231,16 +231,10 @@
                                                 <input id="email" type="text" name="email">
                                             </div>
                                         </div>
-                                        @if (TempData["SuccessMessage"] != null)
+                                        @if (!string.IsNullOrEmpty(Model.Message))
                                         {
-                                            <div class="alert alert-success" role="alert">
-                                                @TempData["SuccessMessage"]
-                                            </div>
-                                        }
-                                        @if (TempData["ErrorMessage"] != null)
-                                        {
-                                            <div class="alert alert-danger" role="alert">
-                                                @TempData["ErrorMessage"]
+                                            <div class="alert alert-info" role="alert">
+                                                @Model.Message
                                             </div>
                                         }
                                         <button type="submit">Submit</button>
