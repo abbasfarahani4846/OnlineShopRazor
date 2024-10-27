@@ -51,6 +51,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Pages\Admin\Comments\" />
     <Folder Include="wwwroot\images\banners\" />
     <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
