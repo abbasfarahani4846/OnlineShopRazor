@@ -34,6 +34,8 @@ public class ProductDetails : PageModel
         NewProducts = _context.Products.Where(x => x.Id != id).Take(6).OrderByDescending(x => x.Id).ToList();
 
         Comments  = _context.Comments.Where(x => x.ProductId == id).OrderByDescending(x => x.CreateDate).ToList();
+        
+
         return Page();
 
     }
@@ -46,7 +48,7 @@ public class ProductDetails : PageModel
             Match match = regex.Match(email);
             if (!match.Success)
             {
-                Message = "Email is not valid";
+                TempData["Message"] = "Email is not valid";
                 return Redirect("/ProductDetails?id=" + productId);
             }
 
@@ -60,12 +62,12 @@ public class ProductDetails : PageModel
             _context.Comments.Add(newComment);
             _context.SaveChanges();
 
-            Message = "Youre comment submited success fully";
+            TempData["Message"] = "Youre comment submited success fully";
             return Redirect("/ProductDetails?id=" + productId);
         }
         else
         {
-            Message = "Please complete youre information";
+            TempData["Message"] = "Please complete youre information";
             return Redirect("/ProductDetails?id=" + productId);
         }
     }

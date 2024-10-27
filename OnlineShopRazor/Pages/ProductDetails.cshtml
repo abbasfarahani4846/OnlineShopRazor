@@ -9,8 +9,12 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="/">home</a></li>
-                        <li><a href="/products">shop</a></li>
+                        <li>
+                            <a href="/">home</a>
+                        </li>
+                        <li>
+                            <a href="/products">shop</a>
+                        </li>
                         <li>
                             @Model.Product.Title
                         </li>
@@ -46,7 +50,7 @@
                         </div>
                         <div class="product_zoom_main_img">
                             <div class="product_zoom_thumb">
-                                <img data-image="/images/products/@Model.Product.ImageName" src="/images/products/@Model.Product.ImageName" alt="@Model.Product.ImageName" />
+                                <img data-image="/images/products/@Model.Product.ImageName" src="/images/products/@Model.Product.ImageName" alt="@Model.Product.ImageName"/>
                             </div>
 
                             @if (Model.ProductGaleries.Any())
@@ -54,7 +58,7 @@
                                 @foreach (var item in Model.ProductGaleries.OrderBy(x => x.Id))
                                 {
                                     <div class="product_zoom_thumb">
-                                        <img data-image="/images/products/@item.ImageName" src="/images/products/@item.ImageName" alt="@item.ImageName" />
+                                        <img data-image="/images/products/@item.ImageName" src="/images/products/@item.ImageName" alt="@item.ImageName"/>
                                     </div>
                                 }
                             }
@@ -72,7 +76,7 @@
                         <div class="product_ratting_review d-flex align-items-center">
                             <div class="product_review">
                                 <ul class="d-flex">
-                                    <li>@Model.Comments.Count()  reviews</li>
+                                    <li>@Model.Comments.Count() reviews</li>
                                     <li>Write your review</li>
                                 </ul>
                             </div>
@@ -92,7 +96,8 @@
                         <div class="product_availalbe">
                             <ul class="d-flex">
                                 <li>
-                                    <i class="icon-layers icons"></i> Only <span>
+                                    <i class="icon-layers icons"></i> Only
+                                    <span>
                                         @Model.Product.Qty
                                     </span> left
                                 </li>
@@ -142,7 +147,9 @@
                                 <ul class="d-flex">
                                     @foreach (var item in tags)
                                     {
-                                        <li><a href="/shop?searchText=@item">@item</a></li>
+                                        <li>
+                                            <a href="/shop?searchText=@item">@item</a>
+                                        </li>
                                     }
                                 </ul>
                             }
@@ -167,7 +174,7 @@
                                 <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Product Description</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews          </a>
+                                <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews </a>
                             </li>
                             <li>
                                 <a data-toggle="tab" href="#tags" role="tab" aria-controls="tags" aria-selected="false">Tags </a>
@@ -211,11 +218,11 @@
                                 }
                                 <div class="comment_title">
                                     <h2>Add a review </h2>
-                                    <p>Your email address will not be published.  Required fields are marked </p>
+                                    <p>Your email address will not be published. Required fields are marked </p>
                                 </div>
                                 <div class="product_review_form">
                                     <form asp-page-handler="SubmitComment" method="post">
-                                        <input type="hidden" name="productId" value="@Model.Product.Id" />
+                                        <input type="hidden" name="productId" value="@Model.Product.Id"/>
                                         <div class="row">
                                             <div class="col-12">
                                                 <label for="review_comment">Your review </label>
@@ -224,17 +231,17 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <label for="author">Name</label>
                                                 <input id="author" type="text" name="name">
-                                    
+
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <label for="email">Email </label>
                                                 <input id="email" type="text" name="email">
                                             </div>
                                         </div>
-                                        @if (!string.IsNullOrEmpty(Model.Message))
+                                        @if (TempData["Message"] != null)
                                         {
                                             <div class="alert alert-info" role="alert">
-                                                @Model.Message
+                                               @TempData["Message"]
                                             </div>
                                         }
                                         <button type="submit">Submit</button>
@@ -304,7 +311,6 @@
 
                     @foreach (var item in Model.NewProducts)
                     {
-
                         <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
@@ -384,8 +390,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     }
                 </div>
             </div>
