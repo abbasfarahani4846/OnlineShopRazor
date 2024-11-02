@@ -1,0 +1,42 @@
+﻿@page
+@model OnlineShopRazor.Pages.LoginModel
+
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container" style="margin-top: 200px">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Username" class="control-label"></label>
+                    <input asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-outline-dark" />
+                </div>
+
+                <br>
+                <br>
+                <a href="/login">
+                    Haven`t any account? register
+                    </a>
+                <br>
+                <a href="/forgetpassword">
+                    Forget password
+                </a>
+            </form>
+        </div>
+    </div>
+
+</div>
