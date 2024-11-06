@@ -520,7 +520,7 @@
 
         function getMiniCart() {
             $.ajax({
-                url: '/Cart?handler=UpdateCart',
+                url: '/Cart?handler=SmallCart',
                 type: 'GET',
                 success: function (result) {
                     $(".mini_cart").html(result);
@@ -530,6 +530,15 @@
                 }
             });
         }
+
+        $(document).ready(function () {
+            getMiniCart();
+
+            $(".slick-slide").click(function () {
+                $(".slick-track").css("transform", "");
+            });
+
+        });
 
     </script>
 </body>

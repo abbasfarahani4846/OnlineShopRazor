@@ -79,12 +79,12 @@ namespace OnlineShopRazor.Pages
 
             return new JsonResult(result);
         }
-        //public IActionResult SmallCart()
-        //{
-        //    var result = GetProductsinCart();
+        public IActionResult OnGetSmallCart()
+        {
+            var result = GetProductsinCart();
 
-        //    return PartialView(result);
-        //}
+            return Partial("_SmallCart",result);
+        }
 
         public IActionResult ClearCart()
         {
