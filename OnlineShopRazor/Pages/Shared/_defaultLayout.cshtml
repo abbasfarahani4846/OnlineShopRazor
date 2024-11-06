@@ -261,7 +261,7 @@
                             </div>
                             <div class="header_account">
                                 <ul class="d-flex">
-                                  
+
                                     <li class="account_link">
                                         <a href="#"><i class="icon-user icons @(User.Identity.IsAuthenticated?"text-danger":"")"></i></a>
                                         <ul class="dropdown_account_link">
@@ -279,12 +279,12 @@
 
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="#"><i class="icon-heart icons"></i></a> <span class="item_count">2</span>
-                                    </li>
+                                
                                     <li class="shopping_cart">
                                         <a href="#"><i class="icon-basket-loaded icons"></i></a>
-                                        <span class="item_count">2</span>
+                                        <span class="item_count">
+
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -495,7 +495,42 @@
 
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
+    @Html.AntiForgeryToken()
+    <script>
+        function updateCart(productId, count) {
+            $.ajax({
+                url: '/Cart?handler=UpdateCart',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ productId: productId, count: count }),
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() }, //add the verification token to the header.
+                success: function (result) {
+                    $(".item_count").html(result);
+                    if (count == 0) {
+                        $("#" + productId).remove();
+                    }
 
+                    getMiniCart();
+                },
+                error: function () {
+                    alert('product not exist or QTY is not enough');
+                }
+            });
+        }
 
+        function getMiniCart() {
+            $.ajax({
+                url: '/Cart?handler=UpdateCart',
+                type: 'GET',
+                success: function (result) {
+                    $(".mini_cart").html(result);
+                },
+                error: function () {
+                    console.error('Error fetching mini cart');
+                }
+            });
+        }
+
+    </script>
 </body>
 </html>
