@@ -21,8 +21,10 @@ namespace OnlineShopRazor.Pages
         {
             _context = context;
         }
+        public List<ProductCartViewModel> ProductCart { get; set; }
         public void OnGet()
         {
+            ProductCart = GetProductsinCart();
         }
 
         public async Task<IActionResult> OnPostUpdateCartAsync([FromBody]CartViewModel request)
@@ -86,7 +88,7 @@ namespace OnlineShopRazor.Pages
             return Partial("_SmallCart",result);
         }
 
-        public IActionResult ClearCart()
+        public IActionResult OnGetClearCart()
         {
             Response.Cookies.Delete("Cart");
             return Redirect("/");

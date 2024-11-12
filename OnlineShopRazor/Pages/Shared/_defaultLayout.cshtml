@@ -495,7 +495,9 @@
 
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
+
     @Html.AntiForgeryToken()
+
     <script>
         function updateCart(productId, count) {
             $.ajax({
@@ -503,7 +505,9 @@
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({ productId: productId, count: count }),
-                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() }, //add the verification token to the header.
+                headers: { 
+                    "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+                }, //add the verification token to the header.
                 success: function (result) {
                     $(".item_count").html(result);
                     if (count == 0) {
