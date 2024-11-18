@@ -38,6 +38,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//------
+app.UseSession();
+//-------
+
 app.UseAuthentication(); // Added for authentication
 app.UseAuthorization();
 

@@ -1,0 +1,20 @@
+﻿@page
+@model OnlineShopRazor.Pages.PaymentReturnModel
+
+@if (Model.OrderId != 0)
+{
+
+    <div class="container" style="margin-top:200px">
+        <div class="alert alert-success" role="alert">
+            Success. order id is : @Model.OrderId
+        </div>
+    </div>
+}
+else
+{
+    <div class="container" style="margin-top:200px">
+        <div class="alert alert-danger" role="alert">
+            Error
+        </div>
+    </div>
+}

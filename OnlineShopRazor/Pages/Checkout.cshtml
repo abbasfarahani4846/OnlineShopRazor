@@ -44,7 +44,7 @@
                 </div>
             </div>
         }
-        <form method="post">
+        <form method="post" asp-page-handler="SubmitOrder">
             <input type="hidden" asp-for="Order.CouponCode" />
             <input type="hidden" asp-for="Order.Shipping" />
 
