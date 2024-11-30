@@ -16,11 +16,16 @@ namespace OnlineShopRazor.Pages
         }
 
         public IList<Banner> Banner { get; set; } = default!;
-
-
+        public IList<Product> NewProducts { get; set; } = default!;
+        public IList<BestSellingFinal> BestSellingProducts { get; set; } = default!;
         public async Task OnGetAsync()
         {
             Banner = await _context.Banners.ToListAsync();
+            //----------------------------------------------------
+            NewProducts =_context.Products.OrderByDescending(x=>x.Id).Take(8).ToList();
+            //----------------------------------------------------
+            BestSellingProducts = _context.BestSellingFinals.ToList();
+            //----------------------------------------------------
         }
 
     }
