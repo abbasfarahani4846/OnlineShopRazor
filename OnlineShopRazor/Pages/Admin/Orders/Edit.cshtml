@@ -1,0 +1,157 @@
+﻿@page
+@model OnlineShopRazor.Pages.Admin.Orders.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Order.Id" />
+            <input type="hidden" asp-for="Order.UserId" />
+
+            <div class="form-group">
+                <label asp-for="Order.FirstName" class="control-label"></label>
+                <input asp-for="Order.FirstName" class="form-control" />
+                <span asp-validation-for="Order.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.LastName" class="control-label"></label>
+                <input asp-for="Order.LastName" class="form-control" />
+                <span asp-validation-for="Order.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CompanyName" class="control-label"></label>
+                <input asp-for="Order.CompanyName" class="form-control" />
+                <span asp-validation-for="Order.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Country" class="control-label"></label>
+                <input asp-for="Order.Country" class="form-control" />
+                <span asp-validation-for="Order.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Address" class="control-label"></label>
+                <input asp-for="Order.Address" class="form-control" />
+                <span asp-validation-for="Order.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.City" class="control-label"></label>
+                <input asp-for="Order.City" class="form-control" />
+                <span asp-validation-for="Order.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Email" class="control-label"></label>
+                <input asp-for="Order.Email" class="form-control" />
+                <span asp-validation-for="Order.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Phone" class="control-label"></label>
+                <input asp-for="Order.Phone" class="form-control" />
+                <span asp-validation-for="Order.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Comment" class="control-label"></label>
+                <input asp-for="Order.Comment" class="form-control" />
+                <span asp-validation-for="Order.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CouponCode" class="control-label"></label>
+                <input asp-for="Order.CouponCode" class="form-control" />
+                <span asp-validation-for="Order.CouponCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CouponDiscount" class="control-label"></label>
+                <input asp-for="Order.CouponDiscount" class="form-control" />
+                <span asp-validation-for="Order.CouponDiscount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Shipping" class="control-label"></label>
+                <input asp-for="Order.Shipping" class="form-control" />
+                <span asp-validation-for="Order.Shipping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.SubTotal" class="control-label"></label>
+                <input asp-for="Order.SubTotal" class="form-control" />
+                <span asp-validation-for="Order.SubTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Total" class="control-label"></label>
+                <input asp-for="Order.Total" class="form-control" />
+                <span asp-validation-for="Order.Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CreateDate" class="control-label"></label>
+                <input asp-for="Order.CreateDate" class="form-control" />
+                <span asp-validation-for="Order.CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.TransId" class="control-label"></label>
+                <input asp-for="Order.TransId" class="form-control" />
+                <span asp-validation-for="Order.TransId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Status" class="control-label"></label>
+                <input asp-for="Order.Status" class="form-control" />
+                <span asp-validation-for="Order.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Count
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>
+                            @item.ProductTitle
+                        </td>
+                        <td>
+                            @item.ProductPrice
+                        </td>
+                        <td>
+                            @item.Count
+                        </td>
+                        <td>
+                            @(item.Count * item.ProductPrice)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

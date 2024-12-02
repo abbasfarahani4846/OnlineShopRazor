@@ -1,5 +1,7 @@
 ﻿@inject OnlineShopRazor.Models.db.OnlineShopContext _context
-
+@{
+    var setting = _context.Settings.FirstOrDefault();
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,44 +46,25 @@
                         <div class="header_contact_info">
                             <ul class="d-flex">
                                 <li class="text-white">
-                                    <i class="icons icon-phone"></i> <a href="tel:+05483716566">
-                                        +054
-                                        8371 65 66
+                                    <i class="icons icon-phone"></i> <a href="tel:@setting.Phone">
+                                        @setting.Phone
                                     </a>
                                 </li>
                                 <li class="text-white">
-                                    <i class="icon-envelope-letter icons"></i> <a href="#">uthrstore@domain.com</a>
+                                    <i class="icon-envelope-letter icons"></i> 
+                                    <a href="#">
+                                        @setting.Email
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="header_social d-flex">
                             <span>Follow us</span>
                             <ul class="d-flex">
-                                <li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-                                <li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-                                <li><a href="#"><i class="icon-social-instagram icons"></i></a></li>
-                                <li><a href="#"><i class="icon-social-youtube icons"></i></a></li>
-                                <li><a href="#"><i class="icon-social-pinterest icons"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="language_currency">
-                            <ul class="d-flex">
-                                <li class="language">
-                                    <a href="#"> Eng <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_language">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">Russian</a></li>
-                                    </ul>
-                                </li>
-                                <li class="currency">
-                                    <a href="#"> USd <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_currency">
-                                        <li><a href="#">€ Euro</a></li>
-                                        <li><a href="#">£ Pound Sterling</a></li>
-                                        <li><a href="#">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="@setting.Twitter"><i class="icon-social-twitter icons"></i></a></li>
+                                <li><a href="@setting.FaceBook"><i class="icon-social-facebook icons"></i></a></li>
+                                <li><a href="@setting.Instagram"><i class="icon-social-instagram icons"></i></a></li>
+                                <li><a href="@setting.Youtube"><i class="icon-social-youtube icons"></i></a></li>
                             </ul>
                         </div>
                         <div id="menu" class="text-left ">
@@ -108,128 +91,11 @@
     <!--offcanvas menu area end-->
     <!--mini cart-->
     <div class="mini_cart">
-        <div class="cart_gallery">
-            <div class="cart_close">
-                <div class="cart_text">
-                    <h3>cart</h3>
-                </div>
-                <div class="mini_cart_close">
-                    <a href="javascript:void(0)"><i class="icon-close icons"></i></a>
-                </div>
-            </div>
-            <div class="cart_item">
-                <div class="cart_img">
-                    <a href="#"><img src="/assets/img/product/product1.jpg" alt=""></a>
-                </div>
-                <div class="cart_info">
-                    <a href="#">Primis In Faucibus</a>
-                    <p>1 x <span> $65.00 </span></p>
-                </div>
-                <div class="cart_remove">
-                    <a href="#"><i class="icon-close icons"></i></a>
-                </div>
-            </div>
-            <div class="cart_item">
-                <div class="cart_img">
-                    <a href="#"><img src="/assets/img/product/product2.jpg" alt=""></a>
-                </div>
-                <div class="cart_info">
-                    <a href="#">Letraset Sheets</a>
-                    <p>1 x <span> $60.00 </span></p>
-                </div>
-                <div class="cart_remove">
-                    <a href="#"><i class="icon-close icons"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="mini_cart_table">
-            <div class="cart_table_border">
-                <div class="cart_total">
-                    <span>Sub total:</span>
-                    <span class="price">$125.00</span>
-                </div>
-                <div class="cart_total mt-10">
-                    <span>total:</span>
-                    <span class="price">$125.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="mini_cart_footer">
-            <div class="cart_button">
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
-            </div>
-            <div class="cart_button">
-                <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
-            </div>
-        </div>
+
     </div>
     <!--mini cart end-->
     <!--header area start-->
-    <header class="header_section header_transparent">
-        <div class="header_top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="header_top_inner d-flex justify-content-between align-items-center">
-                            <div class="header_contact_info">
-                                <ul class="d-flex">
-                                    <li class="text-white">
-                                        <i class="icons icon-phone"></i> <a href="tel:+05483716566">+054 8371 65 66</a>
-                                    </li>
-                                    <li class="text-white">
-                                        <i class="icon-envelope-letter icons"></i> <a href="#">uthrstore@domain.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="free_shipping_text">
-                                <p class="text-white">
-                                    Free shipping worldwide for orders over $99 <a href="#">
-                                        Learn
-                                        More
-                                    </a>
-                                </p>
-                            </div>
-                            <div class="header_top_sidebar d-flex align-items-center">
-                                <div class="header_social d-flex">
-                                    <span>Follow us</span>
-                                    <ul class="d-flex">
-                                        <li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-                                        <li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-                                        <li><a href="#"><i class="icon-social-instagram icons"></i></a></li>
-                                        <li><a href="#"><i class="icon-social-youtube icons"></i></a></li>
-                                        <li><a href="#"><i class="icon-social-pinterest icons"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="language_currency">
-                                    <ul class="d-flex">
-                                        <li class="language">
-                                            <a href="#">
-                                                Eng <i class="icon-right ion-ios-arrow-down"></i>
-                                            </a>
-                                            <ul class="dropdown_language">
-                                                <li><a href="#">French</a></li>
-                                                <li><a href="#">Spanish</a></li>
-                                                <li><a href="#">Russian</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="currency">
-                                            <a href="#">
-                                                USd <i class="icon-right ion-ios-arrow-down"></i>
-                                            </a>
-                                            <ul class="dropdown_currency">
-                                                <li><a href="#">€ Euro</a></li>
-                                                <li><a href="#">£ Pound Sterling</a></li>
-                                                <li><a href="#">$ US Dollar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+   <header class="header_section header_transparent">
 
         <div class="main_header">
             <div class="container-fluid">
@@ -240,7 +106,7 @@
                                 <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
                             </div>
                             <div class="header_logo">
-                                <a class="sticky_none" href="index.html"><img src="/assets/img/logo/logo.png" alt=""></a>
+                                <a class="sticky_none" href="/"><img src="/images/@setting.Logo" alt="@setting.Title"></a>
                             </div>
                             <!--main menu start-->
                             <div class="main_menu d-none d-lg-block">
@@ -254,14 +120,14 @@
                                                     @item.Title
                                                 </a>
                                             </li>
-                                        }
 
+                                        }
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header_account">
                                 <ul class="d-flex">
-
+                                    <li class="header_search"><a href="#"><i class="icon-magnifier icons"></i></a></li>
                                     <li class="account_link">
                                         <a href="#"><i class="icon-user icons @(User.Identity.IsAuthenticated?"text-danger":"")"></i></a>
                                         <ul class="dropdown_account_link">
@@ -269,21 +135,20 @@
                                             {
                                                 <li><a href="/user">My Account</a></li>
                                                 <li><a href="/User/Orders">Order list</a></li>
-                                                <li><a href="/logout">Logout</a></li>
+                                                <li><a href="/account/logout">Logout</a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="/login">Login</a></li>
-                                                <li><a href="/register">Register</a></li>
+                                                <li><a href="/account/login">Login</a></li>
+                                                <li><a href="/account/register">Register</a></li>
                                             }
 
                                         </ul>
                                     </li>
-                                
                                     <li class="shopping_cart">
                                         <a href="#"><i class="icon-basket-loaded icons"></i></a>
                                         <span class="item_count">
-
+                                            0
                                         </span>
                                     </li>
                                 </ul>
@@ -298,13 +163,14 @@
             <div class="search_close">
                 <i class="ion-close-round"></i>
             </div>
-            <form class="border-bottom" action="/shop">
-                <input class="border-0" name="searchText" placeholder="Search products..." type="text">
+            <form class="border-bottom" action="/product/SearchProducts">
+                <input class="border-0" placeholder="Search products..." type="text" name="searchText">
                 <button type="submit"><span class="icon-magnifier icons"></span></button>
             </form>
         </div>
 
     </header>
+
     <!--header area end-->
     @* -------------- *@
 
@@ -319,16 +185,20 @@
                 <div class="col-lg-5 col-md-5 col-sm-5">
                     <div class="footer_widget_list">
                         <div class="footer_logo">
-                            <a href="#"><img src="/assets/img/logo/logo.png" alt=""></a>
+                            <a href="/"><img src="/images/@setting.Logo" alt="@setting.Title"></a>
                         </div>
                         <div class="footer_contact">
                             <div class="footer_contact_list">
                                 <span>Our Location</span>
-                                <p>869 General Village Apt. 645, Moorebury, USA</p>
+                                <p>
+                                    @setting.Address
+                                </p>
                             </div>
                             <div class="footer_contact_list">
                                 <span>24/7 hotline:</span>
-                                <a href="tel:(+99)0521282399">(+99) 052 128 2399</a>
+                                <a href="tel:@setting.Phone">
+                                    @setting.Phone
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -338,46 +208,42 @@
                         <div class="footer_menu">
                             <ul class="d-flex justify-content-end">
                                 @{
-                                    var BottomMenu = _context.Menus.Where(x => x.Type == "Bottom").ToList();
+                                    var bottomMenus = _context.Menus.Where(row => row.Type == "Bottom").ToList();
                                 }
-                                @foreach (var item in BottomMenu)
+                                @foreach (var item in bottomMenus)
                                 {
-                                    <li>
-                                        <a href="@item.Link">
-                                            @item.Title
-                                        </a>
-                                    </li>
+                                    <li><a href="@item.Link">@item.Title</a></li>
                                 }
                             </ul>
                         </div>
                         <div class="footer_social">
                             <ul class="d-flex justify-content-end">
                                 <li>
-                                    <a href="https://twitter.com" data-tippy="Twitter" data-tippy-inertia="true"
+                                    <a href="@setting.Twitter" data-tippy="Twitter" data-tippy-inertia="true"
                                        data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">
                                         <i class="ion-social-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.facebook.com" data-tippy="Facebook" data-tippy-inertia="true"
+                                    <a href="@setting.FaceBook" data-tippy="Facebook" data-tippy-inertia="true"
                                        data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">
                                         <i class="ion-social-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.google.com" data-tippy="googleplus" data-tippy-inertia="true"
+                                    <a href="@setting.GooglePlus" data-tippy="googleplus" data-tippy-inertia="true"
                                        data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">
                                         <i class="ion-social-googleplus-outline"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com" data-tippy="Instagram" data-tippy-inertia="true"
+                                    <a href="@setting.Instagram" data-tippy="Instagram" data-tippy-inertia="true"
                                        data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">
                                         <i class="ion-social-instagram-outline"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.youtube.com" data-tippy="Youtube" data-tippy-inertia="true"
+                                    <a href="@setting.Youtube" data-tippy="Youtube" data-tippy-inertia="true"
                                        data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">
                                         <i class="ion-social-youtube"></i>
                                     </a>
@@ -385,7 +251,9 @@
                             </ul>
                         </div>
                         <div class="copyright_right">
-                            <p>©2021 <span>Uthr</span>. made with <i class="ion-heart"></i>  by <a href="https://hasthemes.com" target="_blank">HasThemes</a></p>
+                            <p>
+                                @setting.CopyRight
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -393,88 +261,7 @@
         </div>
     </footer>
     <!--footer area end-->
-    <!-- modal area start-->
-    <div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="ion-android-close"></i></span>
-                </button>
-                <div class="modal_body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="modal_zoom_gallery">
-                                    <div class="product_zoom_thumb">
-                                        <img src="/assets/img/product/big-product/product1.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="modal_right">
-                                    <div class="modal_title mb-10">
-                                        <h2>Donec Ac Tempus</h2>
-                                    </div>
-                                    <div class="modal_price mb-10">
-                                        <span class="new_price">$64.99</span>
-                                        <span class="old_price">$78.99</span>
-                                    </div>
-                                    <div class="modal_description mb-15">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste
-                                            laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam
-                                            in quos qui,
-                                        </p>
-                                    </div>
-                                    <div class="variants_selects">
-                                        <div class="variants_size">
-                                            <h2>size</h2>
-                                            <select class="select_option">
-                                                <option selected value="1">s</option>
-                                                <option value="1">m</option>
-                                                <option value="1">l</option>
-                                                <option value="1">xl</option>
-                                                <option value="1">xxl</option>
-                                            </select>
-                                        </div>
-                                        <div class="variants_color">
-                                            <h2>color</h2>
-                                            <select class="select_option">
-                                                <option selected value="1">purple</option>
-                                                <option value="1">violet</option>
-                                                <option value="1">black</option>
-                                                <option value="1">pink</option>
-                                                <option value="1">orange</option>
-                                            </select>
-                                        </div>
-                                        <div class="modal_add_to_cart">
-                                            <form action="#">
-                                                <input min="1" max="100" step="2" value="1" type="number">
-                                                <button type="submit">add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal_social">
-                                        <h2>Share this product</h2>
-                                        <ul>
-                                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li class="google-plus">
-                                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            </li>
-                                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal area end-->
+
     <!-- JS
     ============================================ -->
 

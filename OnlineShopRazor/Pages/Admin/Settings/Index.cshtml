@@ -1,0 +1,90 @@
+﻿@page
+@model OnlineShopRazor.Pages.Admin.Settings.IndexModel
+
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h1>Index</h1>
+
+<h4>Setting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Setting.Id" />
+            <input type="hidden" asp-for="Setting.Logo" />
+            <div class="form-group">
+                <label asp-for="Setting.Shipping" class="control-label"></label>
+                <input asp-for="Setting.Shipping" class="form-control" />
+                <span asp-validation-for="Setting.Shipping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Title" class="control-label"></label>
+                <input asp-for="Setting.Title" class="form-control" />
+                <span asp-validation-for="Setting.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Address" class="control-label"></label>
+                <input asp-for="Setting.Address" class="form-control" />
+                <span asp-validation-for="Setting.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Email" class="control-label"></label>
+                <input asp-for="Setting.Email" class="form-control" />
+                <span asp-validation-for="Setting.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Phone" class="control-label"></label>
+                <input asp-for="Setting.Phone" class="form-control" />
+                <span asp-validation-for="Setting.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.CopyRight" class="control-label"></label>
+                <input asp-for="Setting.CopyRight" class="form-control" />
+                <span asp-validation-for="Setting.CopyRight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Instagram" class="control-label"></label>
+                <input asp-for="Setting.Instagram" class="form-control" />
+                <span asp-validation-for="Setting.Instagram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.FaceBook" class="control-label"></label>
+                <input asp-for="Setting.FaceBook" class="form-control" />
+                <span asp-validation-for="Setting.FaceBook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.GooglePlus" class="control-label"></label>
+                <input asp-for="Setting.GooglePlus" class="form-control" />
+                <span asp-validation-for="Setting.GooglePlus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Youtube" class="control-label"></label>
+                <input asp-for="Setting.Youtube" class="form-control" />
+                <span asp-validation-for="Setting.Youtube" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Twitter" class="control-label"></label>
+                <input asp-for="Setting.Twitter" class="form-control" />
+                <span asp-validation-for="Setting.Twitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Setting.Logo" class="control-label"></label>
+                <input type="file" name="newLogo" class="form-control"/>
+                <br/>
+                <img class="img-thumbnail" src="/images/@Model.Setting.Logo" />
+                <span asp-validation-for="Setting.Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
